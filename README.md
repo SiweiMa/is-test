@@ -1,2 +1,4 @@
-# Are train set and validation/test set are drawn from the same distribution?
-*The awesome trick to determine if it is a valid test set* 
+# Are train and test sets are drawn from the same distribution?
+*An awesome trick to determine if it is a valid test set I learned from [MSDS 621 course](https://github.com/parrt/msds621)* 
+
+
