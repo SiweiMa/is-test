@@ -12,8 +12,6 @@ def is_test(train, test, classifier):
     we can shuffle multiple times (10x here) to get the average training metrics
     print the training metrics before shuffle and average training metrics after shuffle
     """
-    train = train.copy()
-    test = test.copy()
     synthetic_data = pd.concat([train, test], axis=0)
     is_test_col = np.hstack((np.zeros(len(train)), np.ones(len(test))))
 
@@ -52,6 +50,6 @@ def classfify(synthetic_data, classifier):
     return PR, f1
 
 
-# data = pd.read_csv('https://raw.githubusercontent.com/SiweiMa/concrete_ml_lab/main/concrete_ml_lab_final_project.csv')
-# train, test = train_test_split(data, random_state=42)
-# is_test(train, test, RandomForestClassifier)
+data = pd.read_csv('https://raw.githubusercontent.com/SiweiMa/concrete_ml_lab/main/concrete_ml_lab_final_project.csv')
+train, test = train_test_split(data, random_state=42)
+is_test(train, test, RandomForestClassifier)
