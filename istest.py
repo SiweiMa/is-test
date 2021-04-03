@@ -25,7 +25,7 @@ def is_test(train, test, classifier):
     for _ in range(10):
         np.random.shuffle(is_test_col)
         synthetic_data['is_test'] = is_test_col
-        PR, f1 = classfify(synthetic_data, classifier)
+        PR, f1 = classify(synthetic_data, classifier)
         PR_after_shuffle.append(PR)
         f1_after_shuffle.append(f1)
 
@@ -33,7 +33,7 @@ def is_test(train, test, classifier):
           f"the average f1 score after shuffle is {np.mean(f1_after_shuffle)}")
 
 
-def classfify(synthetic_data, classifier):
+def classify(synthetic_data, classifier):
     """
     train the classifier on synthetic data and output the training metrics
     """
