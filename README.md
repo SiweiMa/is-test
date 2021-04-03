@@ -1,4 +1,4 @@
-# Are train and test sets are drawn from the same distribution?
+# Are training and test sets are drawn from the same distribution?
 *Implementation of the awesome trick I learned from [MSDS 621](https://github.com/parrt/msds621)* 
 
 Bofore any modelling work, we always want to make sure we have a valid test (or validation) set, namely train and test (or validation) sets are drawn from the same distribution. 
