@@ -50,7 +50,7 @@ def classify(synthetic_data, Classifier, params=None):
     return PR, f1
 
 
-data = pd.read_csv('https://raw.githubusercontent.com/SiweiMa/concrete_ml_lab/main/concrete_ml_lab_final_project.csv')
-train, test = train_test_split(data, random_state=42)
-model_params = {'n_jobs': -1, 'max_depth': 10, 'min_samples_leaf': 5}
-is_test(train, test, RandomForestClassifier, model_params)
+# data = pd.read_csv('https://raw.githubusercontent.com/SiweiMa/concrete_ml_lab/main/concrete_ml_lab_final_project.csv')
+# train, test = train_test_split(data, random_state=42)
+# model_params = {'n_jobs': -1, 'max_depth': 10, 'min_samples_leaf': 5}
+# is_test(train, test, RandomForestClassifier, model_params)
