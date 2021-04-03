@@ -7,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 def is_test(train, test, classifier):
     """
-    create a maked up column called is_test for the dataset combining train and test set
+    create a maked up column called is_test for the dataset which combines train and test set
     train the classifier on the data before and after shuffle.
     we can shuffle multiple times (10x here) to get the average training metrics
     print the training metrics before shuffle and average training metrics after shuffle
