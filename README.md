@@ -1,5 +1,5 @@
 # Are train and test sets are drawn from the same distribution?
-*Implementation of the awesome trick I learned from [MSDS 621 course](https://github.com/parrt/msds621)* 
+*Implementation of the awesome trick I learned from [MSDS 621](https://github.com/parrt/msds621)* 
 
 Bofore any modelling work, we always want to determine if we have a valid test set, namely train and test sets are drawn from the same distribution. 
 
