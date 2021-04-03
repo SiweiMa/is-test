@@ -1,5 +1,5 @@
 # Are training and test sets are drawn from the same distribution?
-*Implementation of the awesome trick I learned from [MSDS 621](https://github.com/parrt/msds621)* 
+*Implementation of an awesome trick I learned from [MSDS 621](https://github.com/parrt/msds621)* 
 
 We sometimes are not completely sure that we have a valid test (or validation) set - train and test (or validation) sets are drawn from the same distribution. 
 
