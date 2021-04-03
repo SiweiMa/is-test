@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 
-def is_test(train, test, classifier):
+def is_test(train, test, Classifier, params=None):
     """
     create a maked up column called is_test for the dataset which combines train and test set
     train the classifier on the data before and after shuffle.
@@ -16,7 +16,7 @@ def is_test(train, test, classifier):
     is_test_col = np.hstack((np.zeros(len(train)), np.ones(len(test))))
 
     synthetic_data['is_test'] = is_test_col
-    PR, f1 = classfify(synthetic_data, classifier)
+    PR, f1 = classify(synthetic_data, Classifier, params)
     print(f"the PR before shuffle is {PR} "
           f"the f1 score before shuffle is {f1}")
 
@@ -25,7 +25,7 @@ def is_test(train, test, classifier):
     for _ in range(10):
         np.random.shuffle(is_test_col)
         synthetic_data['is_test'] = is_test_col
-        PR, f1 = classify(synthetic_data, classifier)
+        PR, f1 = classify(synthetic_data, Classifier, params)
         PR_after_shuffle.append(PR)
         f1_after_shuffle.append(f1)
 
@@ -33,14 +33,14 @@ def is_test(train, test, classifier):
           f"the average f1 score after shuffle is {np.mean(f1_after_shuffle)}")
 
 
-def classify(synthetic_data, classifier):
+def classify(synthetic_data, Classifier, params=None):
     """
     train the classifier on synthetic data and output the training metrics
     """
     X = synthetic_data.drop('is_test', axis=1)
     y = synthetic_data['is_test'].values
 
-    classifier = classifier(n_jobs=-1, max_depth=10, min_samples_leaf=5)
+    classifier = Classifier(**params)
     classifier.fit(X, y)
     y_pred = classifier.predict(X)
     y_pred_proba = classifier.predict_proba(X)[:, 1]
@@ -50,6 +50,7 @@ def classify(synthetic_data, classifier):
     return PR, f1
 
 
-# data = pd.read_csv('https://raw.githubusercontent.com/SiweiMa/concrete_ml_lab/main/concrete_ml_lab_final_project.csv')
-# train, test = train_test_split(data, random_state=42)
-# is_test(train, test, RandomForestClassifier)
+data = pd.read_csv('https://raw.githubusercontent.com/SiweiMa/concrete_ml_lab/main/concrete_ml_lab_final_project.csv')
+train, test = train_test_split(data, random_state=42)
+model_params = {'n_jobs': -1, 'max_depth': 10, 'min_samples_leaf': 5}
+is_test(train, test, RandomForestClassifier, model_params)
